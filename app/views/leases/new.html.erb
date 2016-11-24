@@ -51,7 +51,7 @@
           Apartment
         </label>
 
-        <input type="text" id="apartment_id" name="apartment_id" placeholder="Apartment" class="form-control" value="<%= @lease.apartment_id %>">
+        <%= select_tag(:apartment_id, options_from_collection_for_select(Apartment.all, :id, :apartment_name, @lease.apartment_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
