@@ -1,0 +1,1 @@
+{"name":"Barebones Calendar Database","repository":"https://github.com/HageP/barebones_calendar_database","env":{"CLOUDINARY_CLOUD_NAME":{"required":true},"CLOUDINARY_API_KEY":{"required":true},"CLOUDINARY_API_SECRET":{"required":true},"ROLLBAR_ACCESS_TOKEN":{"required":true}}}
