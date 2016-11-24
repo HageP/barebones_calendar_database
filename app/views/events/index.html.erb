@@ -25,7 +25,7 @@
       <% @events.each do |event| %>
       <tr>
         <td><%= event.day_of_week %></td>
-        <td><%= event.apartment_id %></td>
+        <td><%= event.apartment.apartment_name %></td>
         <td><%= event.tenant_id %></td>
         <td><%= event.status_id %></td>
         <td><%= event.lease_id %></td>
