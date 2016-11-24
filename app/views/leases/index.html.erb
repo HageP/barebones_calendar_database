@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h1>
+    Leases
+    <a href="/leases/new" class="btn btn-lg btn-success">New Lease</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Lease start</th>
+        <th>Lease end</th>
+        <th>Tenant</th>
+        <th>Apartment</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @leases.each do |lease| %>
+      <tr>
+        <td><%= lease.lease_start %></td>
+        <td><%= lease.lease_end %></td>
+        <td><%= lease.tenant_id %></td>
+        <td><%= lease.apartment_id %></td>
+        <td>
+          <a href="/leases/<%= lease.id %>" class="btn btn-primary">Show</a>
+          <a href="/leases/<%= lease.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_lease/<%= lease.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

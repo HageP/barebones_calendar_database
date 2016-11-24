@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @lease.errors.any? %>
+  <% @lease.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Lease #<%= @lease.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_lease/<%= @lease.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for lease_start -->
+      <div class="form-group">
+        <label for="lease_start" class="control-label">
+          Lease start
+        </label>
+
+        <input type="text" id="lease_start" name="lease_start" placeholder="Lease start" class="form-control" value="<%= @lease.lease_start %>">
+      </div>
+
+      <!-- Label and input for lease_end -->
+      <div class="form-group">
+        <label for="lease_end" class="control-label">
+          Lease end
+        </label>
+
+        <input type="text" id="lease_end" name="lease_end" placeholder="Lease end" class="form-control" value="<%= @lease.lease_end %>">
+      </div>
+
+      <!-- Label and input for tenant_id -->
+      <div class="form-group">
+        <label for="tenant_id" class="control-label">
+          Tenant
+        </label>
+
+        <input type="text" id="tenant_id" name="tenant_id" placeholder="Tenant" class="form-control" value="<%= @lease.tenant_id %>">
+      </div>
+
+      <!-- Label and input for apartment_id -->
+      <div class="form-group">
+        <label for="apartment_id" class="control-label">
+          Apartment
+        </label>
+
+        <input type="text" id="apartment_id" name="apartment_id" placeholder="Apartment" class="form-control" value="<%= @lease.apartment_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Lease
+      </button>
+      or
+      <a href="/leases/<%= @lease.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

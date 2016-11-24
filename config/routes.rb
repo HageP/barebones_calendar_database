@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Lease resource:
+  # CREATE
+  get "/leases/new", :controller => "leases", :action => "new"
+  post "/create_lease", :controller => "leases", :action => "create"
+
+  # READ
+  get "/leases", :controller => "leases", :action => "index"
+  get "/leases/:id", :controller => "leases", :action => "show"
+
+  # UPDATE
+  get "/leases/:id/edit", :controller => "leases", :action => "edit"
+  post "/update_lease/:id", :controller => "leases", :action => "update"
+
+  # DELETE
+  get "/delete_lease/:id", :controller => "leases", :action => "destroy"
+  #------------------------------
+
   # Routes for the Status resource:
   # CREATE
   get "/statuses/new", :controller => "statuses", :action => "new"
