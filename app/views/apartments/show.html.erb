@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h3>Apartment #<%= @apartment.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Apartment name</dt>
+      <dd><%= @apartment.apartment_name %></dd>
+
+      <dt>Address</dt>
+      <dd><%= @apartment.address %></dd>
+
+      <dt>City</dt>
+      <dd><%= @apartment.city %></dd>
+
+      <dt>State</dt>
+      <dd><%= @apartment.state %></dd>
+
+      <dt>Zip</dt>
+      <dd><%= @apartment.zip %></dd>
+
+      <dt>Bedrooms</dt>
+      <dd><%= @apartment.bedrooms %></dd>
+
+      <dt>Bathrooms</dt>
+      <dd><%= @apartment.bathrooms %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/apartments" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/apartments/<%= @apartment.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_apartment/<%= @apartment.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<!-- Validation failure messages -->
+<% if @apartment.errors.any? %>
+  <% @apartment.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Apartment #<%= @apartment.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_apartment/<%= @apartment.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for apartment_name -->
+      <div class="form-group">
+        <label for="apartment_name" class="control-label">
+          Apartment name
+        </label>
+
+        <input type="text" id="apartment_name" name="apartment_name" placeholder="Apartment name" class="form-control" value="<%= @apartment.apartment_name %>">
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @apartment.address %>">
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @apartment.city %>">
+      </div>
+
+      <!-- Label and input for state -->
+      <div class="form-group">
+        <label for="state" class="control-label">
+          State
+        </label>
+
+        <input type="text" id="state" name="state" placeholder="State" class="form-control" value="<%= @apartment.state %>">
+      </div>
+
+      <!-- Label and input for zip -->
+      <div class="form-group">
+        <label for="zip" class="control-label">
+          Zip
+        </label>
+
+        <input type="text" id="zip" name="zip" placeholder="Zip" class="form-control" value="<%= @apartment.zip %>">
+      </div>
+
+      <!-- Label and input for bedrooms -->
+      <div class="form-group">
+        <label for="bedrooms" class="control-label">
+          Bedrooms
+        </label>
+
+        <input type="text" id="bedrooms" name="bedrooms" placeholder="Bedrooms" class="form-control" value="<%= @apartment.bedrooms %>">
+      </div>
+
+      <!-- Label and input for bathrooms -->
+      <div class="form-group">
+        <label for="bathrooms" class="control-label">
+          Bathrooms
+        </label>
+
+        <input type="text" id="bathrooms" name="bathrooms" placeholder="Bathrooms" class="form-control" value="<%= @apartment.bathrooms %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Apartment
+      </button>
+      or
+      <a href="/apartments/<%= @apartment.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
