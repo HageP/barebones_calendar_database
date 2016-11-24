@@ -1,5 +1,7 @@
 ActiveAdmin.register Lease do
 
+ permit_params :lease_start, :lease_end, :tenant_id, :apartment_id
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
