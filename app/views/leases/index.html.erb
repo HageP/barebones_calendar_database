@@ -20,7 +20,7 @@
       <tr>
         <td><%= lease.lease_start %></td>
         <td><%= lease.lease_end %></td>
-        <td><%= lease.tenant_id %></td>
+        <td><%= lease.tenant.tenant_name %></td>
         <td><%= lease.apartment_id %></td>
         <td>
           <a href="/leases/<%= lease.id %>" class="btn btn-primary">Show</a>
