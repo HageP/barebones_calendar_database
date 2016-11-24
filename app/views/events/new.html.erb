@@ -51,7 +51,7 @@
           Status
         </label>
 
-        <input type="text" id="status_id" name="status_id" placeholder="Status" class="form-control" value="<%= @event.status_id %>">
+        <%= select_tag(:status_id, options_from_collection_for_select(Status.all, :id, :status_name, @event.status_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for lease_id -->
