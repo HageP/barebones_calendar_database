@@ -42,7 +42,7 @@
           Tenant
         </label>
 
-        <input type="text" id="tenant_id" name="tenant_id" placeholder="Tenant" class="form-control" value="<%= @lease.tenant_id %>">
+        <%= select_tag(:tenant_id, options_from_collection_for_select(Tenant.all, :id, :tenant_name, @lease.tenant_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for apartment_id -->
