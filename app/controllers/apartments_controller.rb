@@ -6,6 +6,8 @@ class ApartmentsController < ApplicationController
   end
 
   def show
+    @lease = Lease.new
+    @event = Event.new
     @apartment = Apartment.find(params[:id])
 
     render("apartments/show.html.erb")

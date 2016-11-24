@@ -69,6 +69,101 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_event" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for day_of_week -->
+      <div class="form-group">
+        <label for="day_of_week" class="control-label">
+          Day of week
+        </label>
+
+        <input type="text" id="day_of_week" name="day_of_week" placeholder="Day of week" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for apartment_id -->
+      <input type="hidden" name="apartment_id" value="<%= @apartment.id %>">
+
+      <!-- Label and input for tenant_id -->
+      <div class="form-group">
+        <label for="tenant_id" class="control-label">
+          Tenant
+        </label>
+
+        <%= select_tag(:tenant_id, options_from_collection_for_select(Tenant.all, :id, :tenant_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for status_id -->
+      <div class="form-group">
+        <label for="status_id" class="control-label">
+          Status
+        </label>
+
+        <%= select_tag(:status_id, options_from_collection_for_select(Status.all, :id, :status_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for lease_id -->
+      <div class="form-group">
+        <label for="lease_id" class="control-label">
+          Lease
+        </label>
+
+        <%= select_tag(:lease_id, options_from_collection_for_select(Lease.all, :id, :lease_start), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for start_time -->
+      <div class="form-group">
+        <label for="start_time" class="control-label">
+          Start time
+        </label>
+
+        <input type="text" id="start_time" name="start_time" placeholder="Start time" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for end_time -->
+      <div class="form-group">
+        <label for="end_time" class="control-label">
+          End time
+        </label>
+
+        <input type="text" id="end_time" name="end_time" placeholder="End time" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for resourceid -->
+      <div class="form-group">
+        <label for="resourceid" class="control-label">
+          Resourceid
+        </label>
+
+        <input type="text" id="resourceid" name="resourceid" placeholder="Resourceid" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Event
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -100,6 +195,47 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_lease" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for lease_start -->
+      <div class="form-group">
+        <label for="lease_start" class="control-label">
+          Lease start
+        </label>
+
+        <input type="text" id="lease_start" name="lease_start" placeholder="Lease start" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for lease_end -->
+      <div class="form-group">
+        <label for="lease_end" class="control-label">
+          Lease end
+        </label>
+
+        <input type="text" id="lease_end" name="lease_end" placeholder="Lease end" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for tenant_id -->
+      <div class="form-group">
+        <label for="tenant_id" class="control-label">
+          Tenant
+        </label>
+
+        <%= select_tag(:tenant_id, options_from_collection_for_select(Tenant.all, :id, :tenant_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for apartment_id -->
+      <input type="hidden" name="apartment_id" value="<%= @apartment.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Lease
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
