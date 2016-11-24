@@ -23,3 +23,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Tenant has many dates -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Dates
+      </li>
+
+      <% @tenant.dates.each do |event| %>
+        <li class="list-group-item">
+          <a href="/events/<%= event.id %>">
+            <%= event.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/events/<%= event.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/events/<%= event.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_event/<%= event.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Tenant has many leases -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Leases
+      </li>
+
+      <% @tenant.leases.each do |lease| %>
+        <li class="list-group-item">
+          <a href="/leases/<%= lease.id %>">
+            <%= lease.lease_start %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/leases/<%= lease.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/leases/<%= lease.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_lease/<%= lease.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
