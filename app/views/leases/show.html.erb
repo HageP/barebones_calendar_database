@@ -12,10 +12,22 @@
       <dd><%= @lease.lease_end %></dd>
 
       <dt>Tenant</dt>
-      <dd><%= @lease.tenant_id %></dd>
+      <dd>
+        <% if @lease.tenant.present? %>
+          <a href="/tenants/<%= @lease.tenant_id %>">
+            <%= @lease.tenant.tenant_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Apartment</dt>
-      <dd><%= @lease.apartment_id %></dd>
+      <dd>
+        <% if @lease.apartment.present? %>
+          <a href="/apartments/<%= @lease.apartment_id %>">
+            <%= @lease.apartment.apartment_name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

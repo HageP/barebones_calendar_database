@@ -25,10 +25,34 @@
       <% @events.each do |event| %>
       <tr>
         <td><%= event.day_of_week %></td>
-        <td><%= event.apartment.apartment_name %></td>
-        <td><%= event.tenant.tenant_name %></td>
-        <td><%= event.status.status_name %></td>
-        <td><%= event.lease.lease_start %></td>
+        <td>
+          <% if event.apartment.present? %>
+            <a href="/apartments/<%= event.apartment.id %>">
+              <%= event.apartment.apartment_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if event.tenant.present? %>
+            <a href="/tenants/<%= event.tenant.id %>">
+              <%= event.tenant.tenant_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if event.status.present? %>
+            <a href="/statuses/<%= event.status.id %>">
+              <%= event.status.status_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if event.lease.present? %>
+            <a href="/leases/<%= event.lease.id %>">
+              <%= event.lease.lease_start %>
+            </a>
+          <% end %>
+        </td>
         <td><%= event.title %></td>
         <td><%= event.description %></td>
         <td><%= event.start_time %></td>

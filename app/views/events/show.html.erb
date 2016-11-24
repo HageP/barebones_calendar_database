@@ -9,16 +9,40 @@
       <dd><%= @event.day_of_week %></dd>
 
       <dt>Apartment</dt>
-      <dd><%= @event.apartment_id %></dd>
+      <dd>
+        <% if @event.apartment.present? %>
+          <a href="/apartments/<%= @event.apartment_id %>">
+            <%= @event.apartment.apartment_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Tenant</dt>
-      <dd><%= @event.tenant_id %></dd>
+      <dd>
+        <% if @event.tenant.present? %>
+          <a href="/tenants/<%= @event.tenant_id %>">
+            <%= @event.tenant.tenant_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Status</dt>
-      <dd><%= @event.status_id %></dd>
+      <dd>
+        <% if @event.status.present? %>
+          <a href="/statuses/<%= @event.status_id %>">
+            <%= @event.status.status_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Lease</dt>
-      <dd><%= @event.lease_id %></dd>
+      <dd>
+        <% if @event.lease.present? %>
+          <a href="/leases/<%= @event.lease_id %>">
+            <%= @event.lease.lease_start %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Title</dt>
       <dd><%= @event.title %></dd>

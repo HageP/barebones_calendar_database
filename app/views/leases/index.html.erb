@@ -20,8 +20,20 @@
       <tr>
         <td><%= lease.lease_start %></td>
         <td><%= lease.lease_end %></td>
-        <td><%= lease.tenant.tenant_name %></td>
-        <td><%= lease.apartment.apartment_name %></td>
+        <td>
+          <% if lease.tenant.present? %>
+            <a href="/tenants/<%= lease.tenant.id %>">
+              <%= lease.tenant.tenant_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if lease.apartment.present? %>
+            <a href="/apartments/<%= lease.apartment.id %>">
+              <%= lease.apartment.apartment_name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/leases/<%= lease.id %>" class="btn btn-primary">Show</a>
           <a href="/leases/<%= lease.id %>/edit" class="btn btn-warning">Edit</a>
