@@ -1,0 +1,37 @@
+<!-- Validation failure messages -->
+<% if @tenant.errors.any? %>
+  <% @tenant.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Tenant #<%= @tenant.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_tenant/<%= @tenant.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for tenant_name -->
+      <div class="form-group">
+        <label for="tenant_name" class="control-label">
+          Tenant name
+        </label>
+
+        <input type="text" id="tenant_name" name="tenant_name" placeholder="Tenant name" class="form-control" value="<%= @tenant.tenant_name %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Tenant
+      </button>
+      or
+      <a href="/tenants/<%= @tenant.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

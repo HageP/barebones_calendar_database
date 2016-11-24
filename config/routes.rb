@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Tenant resource:
+  # CREATE
+  get "/tenants/new", :controller => "tenants", :action => "new"
+  post "/create_tenant", :controller => "tenants", :action => "create"
+
+  # READ
+  get "/tenants", :controller => "tenants", :action => "index"
+  get "/tenants/:id", :controller => "tenants", :action => "show"
+
+  # UPDATE
+  get "/tenants/:id/edit", :controller => "tenants", :action => "edit"
+  post "/update_tenant/:id", :controller => "tenants", :action => "update"
+
+  # DELETE
+  get "/delete_tenant/:id", :controller => "tenants", :action => "destroy"
+  #------------------------------
+
   # Routes for the Apartment resource:
   # CREATE
   get "/apartments/new", :controller => "apartments", :action => "new"
