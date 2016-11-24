@@ -3,6 +3,221 @@
     Events
     <a href="/events/new" class="btn btn-lg btn-success">New Event</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => "collapse", :id => "events_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+  <%= f.label :resourceid, "Resourceid" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :resourceid_gteq, :class => "form-control", :placeholder => "Resourceid greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :resourceid_lteq, :class => "form-control", :placeholder => "Resourceid less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+          <%= f.label :end_time, "End time" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='end_timegteqPicker'>
+                  <%= f.text_field :end_time_gteq, :class => "form-control", :placeholder => "End time greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='end_timelteqPicker'>
+                  <%= f.text_field :end_time_lteq, :class => "form-control", :placeholder => "End time less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#end_timegteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#end_timelteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#end_timegteqPicker').on("dp.change", function (e) {
+                  $('#end_timelteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#end_timelteqPicker').on("dp.change", function (e) {
+                  $('#end_timegteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+          <%= f.label :start_time, "Start time" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='start_timegteqPicker'>
+                  <%= f.text_field :start_time_gteq, :class => "form-control", :placeholder => "Start time greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='start_timelteqPicker'>
+                  <%= f.text_field :start_time_lteq, :class => "form-control", :placeholder => "Start time less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#start_timegteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#start_timelteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#start_timegteqPicker').on("dp.change", function (e) {
+                  $('#start_timelteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#start_timelteqPicker').on("dp.change", function (e) {
+                  $('#start_timegteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+    <%= f.label :description_cont, "Description contains" %>
+    <%= f.text_field :description_cont, :class => "form-control", :placeholder => "Description contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :title_cont, "Title contains" %>
+    <%= f.text_field :title_cont, :class => "form-control", :placeholder => "Title contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :day_of_week_cont, "Day of week contains" %>
+    <%= f.text_field :day_of_week_cont, :class => "form-control", :placeholder => "Day of week contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+      <%= f.label :apartment_apartment_name_cont, "Apartment apartment_name contains" %>
+      <%= f.text_field :apartment_apartment_name_cont, :class => "form-control", :placeholder => "Apartment apartment_name contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :tenant_tenant_name_cont, "Tenant tenant_name contains" %>
+      <%= f.text_field :tenant_tenant_name_cont, :class => "form-control", :placeholder => "Tenant tenant_name contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :status_status_name_cont, "Status status_name contains" %>
+      <%= f.text_field :status_status_name_cont, :class => "form-control", :placeholder => "Status status_name contains" %>
+    </div>
+
+<div class="form-group">
+          <%= f.label :lease_start, "Lease Lease start" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='leasegteqlease_startPicker'>
+                  <%= f.text_field :lease_lease_start_gteq, :class => "form-control", :placeholder => "Lease Lease start greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='leaselteqlease_startPicker'>
+                  <%= f.text_field :lease_lease_start_lteq, :class => "form-control", :placeholder => "Lease Lease start less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#leasegteqlease_startPicker').datetimepicker({
+                  format: 'MM/DD/YYYY'
+              });
+              $('#leaselteqlease_startPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'MM/DD/YYYY'
+              });
+              $('#leasegteqlease_startPicker').on("dp.change", function (e) {
+                  $('#leaselteqlease_startPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#leaselteqlease_startPicker').on("dp.change", function (e) {
+                  $('#leasegteqlease_startPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/events" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#events_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 <div class="row">

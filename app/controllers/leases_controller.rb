@@ -1,6 +1,7 @@
 class LeasesController < ApplicationController
   def index
-    @leases = Lease.page(params[:page]).per(10)
+    @q = Lease.ransack(params[:q])
+    @leases = @q.result(:distinct => true).includes(:apartment, :tenant, :dates).page(params[:page]).per(10)
 
     render("leases/index.html.erb")
   end
