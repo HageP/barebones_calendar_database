@@ -60,7 +60,7 @@
           Lease
         </label>
 
-        <input type="text" id="lease_id" name="lease_id" placeholder="Lease" class="form-control" value="<%= @event.lease_id %>">
+        <%= select_tag(:lease_id, options_from_collection_for_select(Lease.all, :id, :lease_start, @event.lease_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for title -->
