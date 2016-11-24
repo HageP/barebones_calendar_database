@@ -1,6 +1,6 @@
 class TenantsController < ApplicationController
   def index
-    @tenants = Tenant.all
+    @tenants = Tenant.page(params[:page]).per(10)
 
     render("tenants/index.html.erb")
   end

@@ -1,6 +1,6 @@
 class StatusesController < ApplicationController
   def index
-    @statuses = Status.all
+    @statuses = Status.page(params[:page]).per(10)
 
     render("statuses/index.html.erb")
   end
