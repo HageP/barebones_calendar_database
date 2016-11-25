@@ -1,110 +1,37 @@
-<!-- Validation failure messages -->
-<% if @event.errors.any? %>
-  <% @event.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
     </div>
   <% end %>
-<% end %>
 
-<div class="page-header">
-  <h3>Add Event</h3>
-</div>
-
-<div class="row">
-  <div class="col-md-12">
-    <form action="/create_event" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-    
-      <!-- Label and input for apartment_id -->
-      <div class="form-group">
-        <label for="apartment_id" class="control-label">
-          Apartment
-        </label>
-
-        <%= select_tag(:apartment_id, options_from_collection_for_select(Apartment.all, :id, :apartment_name, @event.apartment_id), :class => "form-control") %>
-      </div>
-
-      <!-- Label and input for tenant_id -->
-      <div class="form-group">
-        <label for="tenant_id" class="control-label">
-          Tenant
-        </label>
-
-        <%= select_tag(:tenant_id, options_from_collection_for_select(Tenant.all, :id, :tenant_name, @event.tenant_id), :class => "form-control") %>
-      </div>
-
-      <!-- Label and input for status_id -->
-      <div class="form-group">
-        <label for="status_id" class="control-label">
-          Status
-        </label>
-
-        <%= select_tag(:status_id, options_from_collection_for_select(Status.all, :id, :status_name, @event.status_id), :class => "form-control") %>
-      </div>
-
-      <!-- Label and input for lease_id -->
-      <div class="form-group">
-        <label for="lease_id" class="control-label">
-          Lease
-        </label>
-
-        <%= select_tag(:lease_id, options_from_collection_for_select(Lease.all, :id, :lease_start, @event.lease_id), :class => "form-control") %>
-      </div>
-
-      <!-- Label and input for title -->
-      <div class="form-group">
-        <label for="title" class="control-label">
-          Title
-        </label>
-
-        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @event.title %>">
-      </div>
-
-      <!-- Label and input for description -->
-      <div class="form-group">
-        <label for="description" class="control-label">
-          Description
-        </label>
-
-        <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="<%= @event.description %>">
-      </div>
-
-      <!-- Label and input for start_time -->
-      <div class="form-group">
-        <label for="start_time" class="control-label">
-          Start time
-        </label>
-
-        <input type="text" id="start_time" name="start_time" placeholder="Start time" class="form-control" value="<%= @event.start_time %>">
-      </div>
-
-      <!-- Label and input for end_time -->
-      <div class="form-group">
-        <label for="end_time" class="control-label">
-          End time
-        </label>
-
-        <input type="text" id="end_time" name="end_time" placeholder="End time" class="form-control" value="<%= @event.end_time %>">
-      </div>
-
-      <!-- Label and input for resourceId -->
-      <div class="form-group">
-        <label for="resourceId" class="control-label">
-          Resourceid
-        </label>
-
-        <input type="text" id="resourceId" name="resourceId" placeholder="Resourceid" class="form-control" value="<%= @event.resourceId %>">
-      </div>
-
-      <button class="btn btn-success">
-        Create Event
-      </button>
-      or
-      <a href="/events">Cancel</a>
-    </form>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
   </div>
-</div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br>
+    <%= f.date_select :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br>
+    <%= f.date_select :end_time %>
+  </div>
+  <div class="field">
+    <%= f.label :resourceId %><br>
+    <%= f.text_area :resourceId %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
