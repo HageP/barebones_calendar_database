@@ -11,5 +11,5 @@
  *= require_self
  *= require fullcalendar.min
  *= require fullcalendar.print
- *= require scheduler
+ *= require scheduler.min
  */

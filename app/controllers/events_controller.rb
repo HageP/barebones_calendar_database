@@ -30,9 +30,15 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new
+    @event.title = params[:title]
+    @event.description = params[:description]
+    @event.start_time = params[:start_time]
+    @event.end_time = params[:end_time]
+    @event.resourceId = params[:resourceId]
+    @event.save
 
     respond_to do |format|
-      if @event.save
+      if @event.save(event_paramsc)
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @event }
       else
@@ -75,5 +81,8 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:title, :description, :start_time, :end_time, :resourceId)
+    end
+    def event_paramsc
+      params.permit(:event, :title, :description, :start_time, :end_time, :resourceId)
     end
 end
