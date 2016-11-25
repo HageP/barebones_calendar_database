@@ -10,7 +10,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :description
       t.datetime :start_time
       t.datetime :end_time
-      t.integer :resourceid
+      t.integer :resourceId
 
       t.timestamps
 

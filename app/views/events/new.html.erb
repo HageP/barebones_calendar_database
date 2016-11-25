@@ -18,15 +18,7 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for day_of_week -->
-      <div class="form-group">
-        <label for="day_of_week" class="control-label">
-          Day of week
-        </label>
-
-        <input type="text" id="day_of_week" name="day_of_week" placeholder="Day of week" class="form-control" value="<%= @event.day_of_week %>">
-      </div>
-
+    
       <!-- Label and input for apartment_id -->
       <div class="form-group">
         <label for="apartment_id" class="control-label">
@@ -99,13 +91,13 @@
         <input type="text" id="end_time" name="end_time" placeholder="End time" class="form-control" value="<%= @event.end_time %>">
       </div>
 
-      <!-- Label and input for resourceid -->
+      <!-- Label and input for resourceId -->
       <div class="form-group">
-        <label for="resourceid" class="control-label">
+        <label for="resourceId" class="control-label">
           Resourceid
         </label>
 
-        <input type="text" id="resourceid" name="resourceid" placeholder="Resourceid" class="form-control" value="<%= @event.resourceid %>">
+        <input type="text" id="resourceId" name="resourceId" placeholder="Resourceid" class="form-control" value="<%= @event.resourceId %>">
       </div>
 
       <button class="btn btn-success">

@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -6,6 +6,10 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 group :development do
   gem "sqlite3"
 end
+
+gem "wdm" if Gem.win_platform?
+
+gem "coffee-script-source", "1.8.0"
 
 group :production do
   gem "pg"
@@ -59,3 +63,5 @@ gem 'activerecord-import'
 gem "ransack"
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
+gem 'fullcalendar-rails'
+gem 'turbolinks'

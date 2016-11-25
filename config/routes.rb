@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
+  resources :apartments
+  resources :events
   root :to => "events#index"
   # Routes for the Lease resource:
   # CREATE
-  get "/leases/new", :controller => "leases", :action => "new"
-  post "/create_lease", :controller => "leases", :action => "create"
-
+  # get "/leases/new", :controller => "leases", :action => "new"
+  # post "/create_lease", :controller => "leases", :action => "create"
+  #
   # READ
   get "/leases", :controller => "leases", :action => "index"
   get "/leases/:id", :controller => "leases", :action => "show"
