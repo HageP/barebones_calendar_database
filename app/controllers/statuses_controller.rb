@@ -2,7 +2,8 @@ class StatusesController < ApplicationController
   def index
     @q = Status.ransack(params[:q])
     @statuses = @q.result(:distinct => true).includes(:dates).page(params[:page]).per(10)
-
+    @in_today = Event.where('DATE(start_time) = ?', Date.today)
+    @out_today = Event.where('DATE(end_time) = ?', Date.today)
     render("statuses/index.html.erb")
   end
 

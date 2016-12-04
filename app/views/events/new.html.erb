@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <!-- Validation failure messages -->
 <% if @event.errors.any? %>
   <% @event.errors.full_messages.each do |message| %>
@@ -9,7 +11,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Add Event</h3>
+  <h3>New Booking</h3>
 </div>
 
 <div class="row">
@@ -46,58 +48,44 @@
         <%= select_tag(:status_id, options_from_collection_for_select(Status.all, :id, :status_name, @event.status_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for lease_id -->
-      <div class="form-group">
-        <label for="lease_id" class="control-label">
-          Lease
-        </label>
-
-        <%= select_tag(:lease_id, options_from_collection_for_select(Lease.all, :id, :lease_start, @event.lease_id), :class => "form-control") %>
-      </div>
 
       <!-- Label and input for title -->
       <div class="form-group">
         <label for="title" class="control-label">
-          Title
+          Tenant Name
         </label>
 
         <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @event.title %>">
       </div>
 
-      <!-- Label and input for description -->
-      <div class="form-group">
-        <label for="description" class="control-label">
-          Description
-        </label>
 
-        <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="<%= @event.description %>">
-      </div>
+
 
       <!-- Label and input for start_time -->
       <div class="form-group">
         <label for="start_time" class="control-label">
-          Start time
+          Start Date
         </label>
 
-        <input type="text" id="start_time" name="start_time" placeholder="Start time" class="form-control" value="<%= @event.start_time %>">
+        <input id="start_time" name="start_time" placeholder="Start Date" class="form-control" type="date" value="<%= @event.start_time %>">
       </div>
 
       <!-- Label and input for end_time -->
       <div class="form-group">
         <label for="end_time" class="control-label">
-          End time
+          End Date
         </label>
 
-        <input type="text" id="end_time" name="end_time" placeholder="End time" class="form-control" value="<%= @event.end_time %>">
+        <input id="end_time" name="end_time" placeholder="End Date" class="form-control" type="date" value="<%= @event.end_time %>">
       </div>
 
       <!-- Label and input for resourceId -->
       <div class="form-group">
         <label for="resourceId" class="control-label">
-          Resourceid
+          Apartment
         </label>
+          <%= select_tag(:resourceId, options_from_collection_for_select(Apartment.all, :id, :apartment_name, @event.resourceId), :class => "form-control") %>
 
-        <input type="text" id="resourceId" name="resourceId" placeholder="Resourceid" class="form-control" value="<%= @event.resourceId %>">
 
       </div>
 
