@@ -3,9 +3,10 @@
 <div class="page-header">
   <h1>
   Check-In|Out Report
-    <a href="/statuses/new" class="btn btn-lg btn-success">Update Status</a>
+    <!-- <a href="/statuses/new" hidden="true" class="btn btn-lg btn-success">Update Status</a> -->
   </h1>
-</div><div class="row mb-1">
+</div>
+<div class="row mb-1" hidden="true">
   <div class="col-md-12">
     <%= search_form_for @q, :class => "collapse", :id => "statuses_filters" do |f| %>
       <p class="lead">Narrow results:</p>
@@ -114,12 +115,13 @@
       <tr>
         <th>Tenant name</th>
         <th>Apartment</th>
+          <th>Actions</th>
       </tr>
 
       <% @in_today.each do |event| %>
       <tr>
         <td><%= event.title %></td>
-        <td><%= event.resourceId %></td>
+        <td><%= Apartment.find(event.resourceId).apartment_name %></td>
         <td>
           <a href="/events/<%= event.id %>" class="btn btn-primary">Show</a>
           <a href="/events/<%= event.id %>/edit" class="btn btn-warning">Edit</a>
@@ -139,12 +141,13 @@
       <tr>
         <th>Tenant name</th>
         <th>Apartment</th>
+        <th>Actions</th>
       </tr>
 
       <% @out_today.each do |event| %>
       <tr>
         <td><%= event.title %></td>
-        <td><%= event.resourceId %></td>
+        <td><%= Apartment.find(event.resourceId).apartment_name %></td>
         <td>
           <a href="/events/<%= event.id %>" class="btn btn-primary">Show</a>
           <a href="/events/<%= event.id %>/edit" class="btn btn-warning">Edit</a>

@@ -8,6 +8,8 @@ class Apartment < ApplicationRecord
              :class_name => "Event",
              :dependent => :destroy
 
+  belongs_to :resourceId
+
   # Indirect associations
 
   # Validations
