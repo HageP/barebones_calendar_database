@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root :to => "events#index"
   ActiveAdmin.routes(self)
   resources :apartments
   resources :events
-  root :to => "events#index"
+
   # Routes for the Lease resource:
   # CREATE
   # get "/leases/new", :controller => "leases", :action => "new"
